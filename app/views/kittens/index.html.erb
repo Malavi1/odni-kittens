@@ -1,0 +1,15 @@
+<%if !@kittens.empty?%>
+    <% @kittens.each do |kitten|%>
+        <%=kitten.name%>
+        <%=kitten.age%>
+        <%=kitten.softness%>
+        <%=kitten.cuteness%>
+        <%= link_to 'Edit',edit_kitten_path(kitten) %>
+        <%= link_to 'Delete', kitten_path(kitten), method: :delete %>
+        <%= link_to 'Show', kitten_path(kitten) %>
+        <br>
+    <%end%>
+<%else %>
+<h1>Opps! Empty</h1>
+<%end%>
+<%= link_to 'Create a Kitten', new_kitten_path %>
